@@ -19,9 +19,9 @@ const Header = () => {
       <Link className="brand" href="/">
         <Logo />
       </Link>
-      <div className="logout" onClick={logout}>
+      <button className="logout" onClick={logout} type="button">
         Logout
-      </div>
+      </button>
     </header>
   );
 };
