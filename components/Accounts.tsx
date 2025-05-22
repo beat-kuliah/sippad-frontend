@@ -4,7 +4,6 @@ import { useModal } from "./hooks/useModal";
 import AddAccount from "./AddAccount";
 import useAxiosHandler from "@/utils/axiosHandler";
 import SendMoney from "./SendMoney";
-import AddMoney from "./AddMoney";
 
 export interface AccountType {
   id: string;
@@ -16,7 +15,6 @@ export interface AccountType {
 enum ModalState {
   AddAccount = "AddAccount",
   SendMoney = "SendMoney",
-  AddMoney = "AddMoney",
 }
 
 const Accounts = () => {
@@ -59,20 +57,12 @@ const Accounts = () => {
     showModal();
   };
 
-  const addMoney = () => {
-    setModalState(ModalState.AddMoney);
-    showModal();
-  };
-
   const comps = {
     [ModalState.AddAccount]: (
       <AddAccount completeOperation={completeOperation} />
     ),
     [ModalState.SendMoney]: (
       <SendMoney completeOperation={completeOperation} accounts={accounts} />
-    ),
-    [ModalState.AddMoney]: (
-      <AddMoney completeOperation={completeOperation} accounts={accounts} />
     ),
   };
 
@@ -96,7 +86,6 @@ const Accounts = () => {
       <div className="op-button">
         {accounts.length > 0 && (
           <>
-            <button onClick={addMoney}>Add Money</button>
             <button onClick={sendMoney}>Send Money</button>
           </>
         )}

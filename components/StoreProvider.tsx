@@ -5,10 +5,12 @@ import { UserType } from "./hocs/withAuth";
 
 interface StoreProps {
   activeUser: UserType | null;
+  modalState: boolean;
 }
 
 const initialState: StoreProps = {
   activeUser: null,
+  modalState: false,
 };
 
 export const store = createContext<{
@@ -18,19 +20,28 @@ export const store = createContext<{
 
 export enum ActionTypes {
   UpdateUser = "updateUser",
+  UpdateModalState = "updateModalState",
 }
 
-type ActionType = {
-  type: ActionTypes.UpdateUser;
-  payload: UserType | null;
-};
+type ActionType =
+  | {
+      type: ActionTypes.UpdateUser;
+      payload: UserType | null;
+    }
+  | {
+      type: ActionTypes.UpdateModalState;
+      payload: boolean;
+    };
 
 const reducer = (state: StoreProps, action: ActionType): StoreProps => {
-  if (action.type === ActionTypes.UpdateUser) {
-    return { ...state, activeUser: action.payload };
+  switch (action.type) {
+    case ActionTypes.UpdateUser:
+      return { ...state, activeUser: action.payload };
+    case ActionTypes.UpdateModalState:
+      return { ...state, modalState: action.payload };
+    default:
+      return state;
   }
-
-  return state;
 };
 
 const StoreProvider: FC<{ children: React.ReactNode }> = ({ children }) => {
