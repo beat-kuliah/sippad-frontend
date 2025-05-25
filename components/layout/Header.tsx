@@ -14,6 +14,7 @@ import {
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Menu, ChevronRight, LogOut, User, Settings } from "lucide-react";
 import Link from "next/link";
+import useLogout from "../hooks/useLogout";
 
 type HeaderProps = {
   sidebarOpen: boolean;
@@ -22,6 +23,7 @@ type HeaderProps = {
 
 export default function Header({ sidebarOpen, setSidebarOpen }: HeaderProps) {
   const pathname = usePathname();
+  const { logout } = useLogout();
 
   // Generate breadcrumb items from pathname
   const generateBreadcrumbs = () => {
@@ -98,17 +100,17 @@ export default function Header({ sidebarOpen, setSidebarOpen }: HeaderProps) {
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>Akun Saya</DropdownMenuLabel>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>
+            <DropdownMenuItem className="cursor-pointer">
               <User className="mr-2 h-4 w-4" />
               <span>Profil</span>
             </DropdownMenuItem>
-            <DropdownMenuItem>
+            <DropdownMenuItem className="cursor-pointer">
               <Settings className="mr-2 h-4 w-4" />
               <span>Pengaturan</span>
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>
-              <LogOut className="mr-2 h-4 w-4" />
+            <DropdownMenuItem className="cursor-pointer">
+              <LogOut className="mr-2 h-4 w-4" onClick={logout} />
               <span>Keluar</span>
             </DropdownMenuItem>
           </DropdownMenuContent>
