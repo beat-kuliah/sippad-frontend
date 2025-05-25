@@ -1,4 +1,4 @@
-const baseUrl = "http://sippad-api.beatfraps.com";
+const baseUrl = "https://sippad-api.beatfraps.com";
 
 export const authUrl = {
   login: `${baseUrl}/auth/login`,
