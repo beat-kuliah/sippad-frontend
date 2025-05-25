@@ -109,8 +109,8 @@ export default function Header({ sidebarOpen, setSidebarOpen }: HeaderProps) {
               <span>Pengaturan</span>
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem className="cursor-pointer">
-              <LogOut className="mr-2 h-4 w-4" onClick={logout} />
+            <DropdownMenuItem className="cursor-pointer" onClick={logout}>
+              <LogOut className="mr-2 h-4 w-4" />
               <span>Keluar</span>
             </DropdownMenuItem>
           </DropdownMenuContent>
