@@ -32,13 +32,13 @@ const Auth: FC<AuthType> = ({
   ) as React.RefObject<HTMLFormElement>;
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-slate-50 to-slate-100 p-4 sm:p-6 md:p-8 auth">
+    <div className="min-h-screen flex flex-col items-center justify-center p-4 sm:p-6 md:p-8 auth">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
           <div className="inline-block mb-4">
             <Logo />
           </div>
-          <h1 className="text-2xl font-semibold text-slate-800 mb-1">
+          <h1 className="text-2xl font-semibold mb-1">
             Sistem Informasi Pengelolaan Pendapatan Daerah
           </h1>
           <p className="text-slate-500 text-sm">Silakan masuk ke akun Anda</p>

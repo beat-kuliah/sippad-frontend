@@ -18,10 +18,6 @@ const Login = () => {
   const Router = useRouter();
   const { axiosHandler } = useAxiosHandler();
   const { setTheme } = useTheme();
-  useEffect(() => {
-    setTheme("light");
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   const onSubmit = async (
     e: FormEvent<HTMLFormElement>,
