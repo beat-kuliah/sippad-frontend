@@ -4,10 +4,9 @@ import Auth from "@/components/Auth";
 import { userTokenKey } from "@/utils/contants";
 import { authUrl } from "@/utils/network";
 import { useRouter } from "next/navigation";
-import React, { FormEvent, useEffect, useState } from "react";
+import React, { FormEvent, useState } from "react";
 import withoutAuth from "../../../components/hocs/withoutAuth";
 import useAxiosHandler from "@/utils/axiosHandler";
-import { useTheme } from "next-themes";
 
 interface LoginType {
   token: string;
@@ -17,7 +16,6 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
   const Router = useRouter();
   const { axiosHandler } = useAxiosHandler();
-  const { setTheme } = useTheme();
 
   const onSubmit = async (
     e: FormEvent<HTMLFormElement>,
