@@ -15,7 +15,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
   const [isMobile, setIsMobile] = useState(false);
   const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
-  console.log("pathname", pathname === "/login");
+  
   useEffect(() => {
     setMounted(true);
     const checkMobile = () => {
