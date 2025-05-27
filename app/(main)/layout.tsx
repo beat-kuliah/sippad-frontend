@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import "@/app/globals.css";
 import "react-toastify/dist/ReactToastify.css";
 import { REM, Righteous } from "next/font/google";
