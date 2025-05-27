@@ -3,7 +3,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Gauge, TrendingUp, Users, DollarSign } from "lucide-react";
 import { useState, useEffect } from "react";
-import withAuth from "../../components/hocs/withAuth";
+import withAuth from "../../../components/hocs/withAuth";
 
 const Dashboard = () => {
   const [mounted, setMounted] = useState(false);

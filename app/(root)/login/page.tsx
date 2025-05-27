@@ -5,7 +5,7 @@ import { userTokenKey } from "@/utils/contants";
 import { authUrl } from "@/utils/network";
 import { useRouter } from "next/navigation";
 import React, { FormEvent, useEffect, useState } from "react";
-import withoutAuth from "../../components/hocs/withoutAuth";
+import withoutAuth from "../../../components/hocs/withoutAuth";
 import useAxiosHandler from "@/utils/axiosHandler";
 import { useTheme } from "next-themes";
 

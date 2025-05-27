@@ -46,20 +46,41 @@ export default function MainLayout({ children }: MainLayoutProps) {
     return null;
   }
 
+  // return (
+  //   <div className="flex h-screen flex-col">
+  //     {pathname === "/login" ? (
+  //       <>{children}</>
+  //     ) : (
+  //       <div className="flex flex-1 overflow-hidden">
+  //         <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+  //         <Sidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+  //         <main className="flex-1 overflow-y-auto p-4 md:p-6 transition-all duration-300">
+  //           {children}
+  //         </main>
+  //         <Footer />
+  //       </div>
+  //     )}
+  //   </div>
+  // );
   return (
-    <div className="flex h-screen flex-col">
+    <div className="flex h-screen">
       {pathname === "/login" ? (
         <>{children}</>
       ) : (
         <>
-          <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
-          <div className="flex flex-1 overflow-hidden">
-            <Sidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
-            <main className="flex-1 overflow-y-auto p-4 md:p-6 transition-all duration-300">
-              {children}
+          <Sidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+          <div className="flex-1 flex flex-col overflow-hidden">
+            <main className="flex-1 flex flex-col">
+              <Header
+                sidebarOpen={sidebarOpen}
+                setSidebarOpen={setSidebarOpen}
+              />
+              <div className="flex-1 overflow-y-auto p-4 md:p-6">
+                {children}
+              </div>
+              <Footer />
             </main>
           </div>
-          <Footer />
         </>
       )}
     </div>

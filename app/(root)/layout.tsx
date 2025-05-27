@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import "./globals.css";
 import "react-toastify/dist/ReactToastify.css";
 import { REM, Righteous } from "next/font/google";
-import StoreProvider from "../components/StoreProvider";
-import ToastLayout from "../components/ToastLayout";
-import { ThemeProvider } from "../components/theme/ThemeProvider";
-import MainLayout from "../components/layout/MainLayout";
+import StoreProvider from "../../components/StoreProvider";
+import ToastLayout from "../../components/ToastLayout";
+import { ThemeProvider } from "../../components/theme/ThemeProvider";
+import MainLayout from "../../components/layout/MainLayout";
 
 export const metadata: Metadata = {
   title: "SIP-PAD",

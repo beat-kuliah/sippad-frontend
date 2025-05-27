@@ -21,7 +21,10 @@ type HeaderProps = {
   setSidebarOpen: (open: boolean) => void;
 };
 
-export default function Header({ sidebarOpen, setSidebarOpen }: HeaderProps) {
+export default function Header({
+  sidebarOpen,
+  setSidebarOpen,
+}: Readonly<HeaderProps>) {
   const pathname = usePathname();
   const { logout } = useLogout();
 
@@ -48,10 +51,10 @@ export default function Header({ sidebarOpen, setSidebarOpen }: HeaderProps) {
   const breadcrumbs = generateBreadcrumbs();
 
   return (
-    <header className="sticky top-0 z-30 flex h-14 items-center gap-4 border-b bg-green-500 dark:bg-green-700 px-4 sm:px-6">
+    <header className="sticky top-0 z-30 flex h-14 items-center gap-4 border-b bg-background px-4 sm:px-6">
       <Button
         variant="ghost"
-        className="hover:bg-green-600 dark:hover:bg-green-800 text-white lg:hidden"
+        className="hover:bg-green-600  lg:hidden"
         size="icon"
         onClick={() => setSidebarOpen(!sidebarOpen)}
       >
@@ -59,15 +62,8 @@ export default function Header({ sidebarOpen, setSidebarOpen }: HeaderProps) {
         <span className="sr-only">Toggle Menu</span>
       </Button>
 
-      <Link href="/" className="flex items-center gap-2 text-white">
-        <span className="text-sm font-medium hidden md:inline-block">
-          Sistem Informasi Pengelolaan Pendapatan Asli Daerah
-        </span>
-        <span className="text-sm font-medium md:hidden">SIP-PAD</span>
-      </Link>
-
-      <div className="ml-auto flex items-center gap-4">
-        <nav className="hidden md:flex items-center gap-1 text-sm text-white">
+      <Link href="/" className="flex items-center gap-2">
+        <nav className="hidden md:flex items-center gap-1 text-sm">
           {breadcrumbs.map((breadcrumb, i) => (
             <div key={i} className="flex items-center">
               {i > 0 && <ChevronRight className="h-4 w-4 mx-1" />}
@@ -79,7 +75,10 @@ export default function Header({ sidebarOpen, setSidebarOpen }: HeaderProps) {
             </div>
           ))}
         </nav>
+        <span className="text-sm font-medium md:hidden">SIP-PAD</span>
+      </Link>
 
+      <div className="ml-auto flex items-center gap-4">
         <ThemeToggle />
 
         <DropdownMenu>
